@@ -1,0 +1,19 @@
+﻿# Carpetas de compilación y dependencias (NUNCA se suben)
+bin/
+obj/
+
+# Configuración del entorno de desarrollo de JetBrains Rider
+.idea/
+*.sln.DotSettings.user
+
+# Archivos de usuario y temporales
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Configuración local que puede contener contraseñas
+appsettings.Development.json
+
+# Carpetas de paquetes de Rider/Visual Studio
+.vs/
