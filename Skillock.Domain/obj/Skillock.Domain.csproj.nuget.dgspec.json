@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Domain\\Skillock.Domain.csproj": {}
+    "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/Skillock.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Domain\\Skillock.Domain.csproj": {
+    "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/Skillock.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Domain\\Skillock.Domain.csproj",
+        "projectUniqueName": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/Skillock.Domain.csproj",
         "projectName": "Skillock.Domain",
-        "projectPath": "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Domain\\Skillock.Domain.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Domain\\obj\\",
+        "projectPath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/Skillock.Domain.csproj",
+        "packagesPath": "/home/josepilco/.nuget/packages/",
+        "outputPath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/josepilco/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -53,12 +48,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.27, 8.0.27]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.127/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

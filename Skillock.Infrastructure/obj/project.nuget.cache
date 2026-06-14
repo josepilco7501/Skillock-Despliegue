@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bPn7RMUHl+g=",
+  "dgSpecHash": "neUt8ExKY28=",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Infrastructure\\Skillock.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Infrastructure/Skillock.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "/home/josepilco/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.27/microsoft.aspnetcore.app.ref.8.0.27.nupkg.sha512"
+  ],
   "logs": []
 }

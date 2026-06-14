@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "/home/josepilco/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Application\\Skillock.Application.csproj",
+      "projectUniqueName": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/Skillock.Application.csproj",
       "projectName": "Skillock.Application",
-      "projectPath": "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Application\\Skillock.Application.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\RiderProjects\\Skillock-ProyectoFinal\\Skillock.Application\\obj\\",
+      "projectPath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/Skillock.Application.csproj",
+      "packagesPath": "/home/josepilco/.nuget/packages/",
+      "outputPath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/josepilco/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -38,11 +38,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -59,12 +54,18 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.27, 8.0.27]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.127/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
