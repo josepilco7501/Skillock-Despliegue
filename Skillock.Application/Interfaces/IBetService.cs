@@ -1,7 +1,7 @@
-using GamerBet.Application.DTOs.Requests;
-using GamerBet.Application.DTOs.Responses;
+using Skillock.Application.DTOs.Requests;
+using Skillock.Application.DTOs.Responses;
 
-namespace GamerBet.Application.Interfaces;
+namespace Skillock.Application.Interfaces;
 
 /// <summary>
 /// Servicio de aplicación para el ciclo de vida de la apuesta.

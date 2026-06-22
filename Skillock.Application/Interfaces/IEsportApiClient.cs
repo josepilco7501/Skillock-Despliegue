@@ -1,7 +1,7 @@
-using GamerBet.Application.DTOs.Responses;
-using GamerBet.Domain.Enums;
+using Skillock.Application.DTOs.Responses;
+using Skillock.Domain.Enums;
 
-namespace GamerBet.Application.Interfaces;
+namespace Skillock.Application.Interfaces;
 
 /// <summary>
 /// Contrato para los clientes HTTP de APIs de Esports de terceros.

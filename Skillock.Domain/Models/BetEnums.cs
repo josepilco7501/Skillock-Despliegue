@@ -1,4 +1,4 @@
-namespace GamerBet.Domain.Enums;
+namespace Skillock.Domain.Enums;
 
 /// <summary>
 /// Ciclo de vida completo de una apuesta PvP.

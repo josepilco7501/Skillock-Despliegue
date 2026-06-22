@@ -1,6 +1,6 @@
-using GamerBet.Domain.Enums;
+using Skillock.Domain.Enums;
 
-namespace GamerBet.Application.DTOs.Responses;
+namespace Skillock.Application.DTOs.Responses;
 
 /// <summary>
 /// Respuesta completa de una apuesta con todas sus parties y miembros.

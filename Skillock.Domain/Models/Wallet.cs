@@ -1,12 +1,12 @@
-using GamerBet.Domain.Common;
+using Skillock.Domain.Common;
 
-namespace GamerBet.Domain.Entities;
+namespace Skillock.Domain.Entities;
 
 /// <summary>
 /// Wallet del usuario. Separa el saldo en dos baldes lógicos para garantizar
 /// que los fondos comprometidos en una apuesta no puedan usarse en otra.
 ///
-/// 💡 RECOMENDACIÓN CRÍTICA DE CONCURRENCIA:
+///  RECOMENDACIÓN CRÍTICA DE CONCURRENCIA:
 /// Aunque se descartó RowVersion/xmin, es OBLIGATORIO que cualquier operación
 /// que modifique SaldoDisponible o SaldoRetenido se ejecute dentro de una
 /// transacción EF Core serializable o al menos Repeatable Read para evitar

@@ -1,6 +1,6 @@
-using GamerBet.Domain.Enums;
+using Skillock.Domain.Enums;
 
-namespace GamerBet.Application.DTOs.Requests;
+namespace Skillock.Application.DTOs.Requests;
 
 /// <summary>
 /// El Líder crea la apuesta inicial. Solo necesita definir el juego

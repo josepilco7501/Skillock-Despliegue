@@ -1,13 +1,13 @@
-using GamerBet.Domain.Common;
-using GamerBet.Domain.Enums;
+using Skillock.Domain.Common;
+using Skillock.Domain.Enums;
 
-namespace GamerBet.Domain.Entities;
+namespace Skillock.Domain.Entities;
 
 /// <summary>
 /// Registro inmutable de cada movimiento de fondos en la plataforma.
 /// Funciona como ledger contable: NUNCA se actualiza ni elimina un registro existente.
 /// 
-/// 💡 RECOMENDACIÓN: Para auditoría financiera, considera implementar
+///  RECOMENDACIÓN: Para auditoría financiera, considera implementar
 /// el patrón Event Sourcing en el futuro, donde este ledger sea la
 /// fuente de verdad y los balances de Wallet sean proyecciones.
 /// </summary>

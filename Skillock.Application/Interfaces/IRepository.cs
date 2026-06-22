@@ -1,13 +1,13 @@
 using System.Linq.Expressions;
-using GamerBet.Domain.Common;
+using Skillock.Domain.Common;
 
-namespace GamerBet.Application.Interfaces;
+namespace Skillock.Application.Interfaces;
 
 /// <summary>
 /// Contrato genérico de repositorio. Deliberadamente minimalista:
 /// solo operaciones que el dominio realmente necesita.
 ///
-/// 💡 DECISIÓN DE DISEÑO: No exponemos IQueryable directamente.
+///  DECISIÓN DE DISEÑO: No exponemos IQueryable directamente.
 /// Exponer IQueryable filtra la abstracción — el servicio puede construir
 /// queries arbitrarias y la capa de Application se acopla a EF Core.
 /// En su lugar, los repositorios concretos en Infrastructure expondrán

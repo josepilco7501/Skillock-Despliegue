@@ -1,6 +1,6 @@
-using GamerBet.Domain.Entities;
+using Skillock.Domain.Entities;
 
-namespace GamerBet.Application.Interfaces;
+namespace Skillock.Application.Interfaces;
 
 /// <summary>
 /// Repositorio especializado para Wallet y WalletTransaction.
@@ -12,7 +12,7 @@ public interface IWalletRepository : IRepository<Wallet>
     /// OBLIGATORIO usar este método en cualquier operación que modifique saldos,
     /// combinado con BeginTransactionAsync en IUnitOfWork.
     ///
-    /// 💡 El bloqueo pesimista es la segunda línea de defensa contra double-spending.
+    ///  El bloqueo pesimista es la segunda línea de defensa contra double-spending.
     ///    La primera es la transacción serializable. Juntas eliminan race conditions.
     /// </summary>
     Task<Wallet?> GetByUserIdWithLockAsync(Guid userId, CancellationToken cancellationToken = default);

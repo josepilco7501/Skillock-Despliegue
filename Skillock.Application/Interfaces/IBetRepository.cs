@@ -1,7 +1,7 @@
-using GamerBet.Domain.Entities;
-using GamerBet.Domain.Enums;
+using Skillock.Domain.Entities;
+using Skillock.Domain.Enums;
 
-namespace GamerBet.Application.Interfaces;
+namespace Skillock.Application.Interfaces;
 
 /// <summary>
 /// Repositorio especializado para el Aggregate Root Bet.

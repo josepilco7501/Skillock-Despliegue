@@ -1,9 +1,19 @@
+using Skillock.Infrastructure.Persistence;
+using Skillock.Infrastructure.Infrastructure.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Configure PostgreSQL DbContext
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// Use the scaffolded DbContext (mapped to domain entities)
+builder.Services.AddDbContext<SkillockDevContext>(options =>
+    options.UseNpgsql(connectionString));
 
 var app = builder.Build();
 

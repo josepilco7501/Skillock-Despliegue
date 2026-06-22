@@ -1,11 +1,11 @@
-using GamerBet.Domain.Common;
+using Skillock.Domain.Common;
 
-namespace GamerBet.Domain.Entities;
+namespace Skillock.Domain.Entities;
 
 /// <summary>
 /// Usuario registrado en la plataforma. Posee exactamente una Wallet (1:1).
 /// 
-/// 💡 RECOMENDACIÓN: El hash de contraseña y la lógica de autenticación
+///  RECOMENDACIÓN: El hash de contraseña y la lógica de autenticación
 /// deben vivir en Infrastructure (ASP.NET Core Identity o similar), NO aquí.
 /// Esta entidad solo contiene los datos de dominio puros.
 /// </summary>

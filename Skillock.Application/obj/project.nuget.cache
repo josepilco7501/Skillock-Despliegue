@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zUMvuca4GNY=",
+  "dgSpecHash": "69jEcaiNZVU=",
   "success": true,
   "projectFilePath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/Skillock.Application.csproj",
   "expectedPackageFiles": [
-    "/home/josepilco/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.27/microsoft.aspnetcore.app.ref.8.0.27.nupkg.sha512"
+    "/home/josepilco/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.28/microsoft.aspnetcore.app.ref.8.0.28.nupkg.sha512"
   ],
   "logs": []
 }

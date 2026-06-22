@@ -1,7 +1,7 @@
-using GamerBet.Domain.Common;
-using GamerBet.Domain.Enums;
+using Skillock.Domain.Common;
+using Skillock.Domain.Enums;
 
-namespace GamerBet.Domain.Entities;
+namespace Skillock.Domain.Entities;
 
 /// <summary>
 /// Representa un equipo (bando) dentro de una apuesta.
@@ -12,7 +12,7 @@ namespace GamerBet.Domain.Entities;
 /// eficiencia en consultas de estado de fondeo, pero SIEMPRE debe
 /// verificarse contra la suma real de contribuciones en operaciones críticas.
 ///
-/// 💡 RECOMENDACIÓN: Considera agregar un índice compuesto en (BetId, IsTeamA)
+///  RECOMENDACIÓN: Considera agregar un índice compuesto en (BetId, IsTeamA)
 /// en la configuración de Fluent API para acelerar las consultas de fondeo.
 /// </summary>
 public class BetParty : BaseEntity

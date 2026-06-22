@@ -10,6 +10,12 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.26"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Skillock.Application\Skillock.Application.csproj" />
+        <ProjectReference Include="..\Skillock.Infrastructure\Skillock.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

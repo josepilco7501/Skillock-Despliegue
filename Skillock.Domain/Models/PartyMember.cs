@@ -1,7 +1,7 @@
-using GamerBet.Domain.Common;
-using GamerBet.Domain.Enums;
+using Skillock.Domain.Common;
+using Skillock.Domain.Enums;
 
-namespace GamerBet.Domain.Entities;
+namespace Skillock.Domain.Entities;
 
 /// <summary>
 /// Representa la participación de un usuario en un equipo de una apuesta.
@@ -11,7 +11,7 @@ namespace GamerBet.Domain.Entities;
 /// al liquidar, el servicio calcula (MontoAportado / AgreedAmountPerTeam)
 /// para determinar el porcentaje del premio que corresponde a cada miembro.
 ///
-/// 💡 RECOMENDACIÓN: En modo Fondo Individual, solo habrá un PartyMember
+///  RECOMENDACIÓN: En modo Fondo Individual, solo habrá un PartyMember
 /// con Role = Leader y MontoAportado = AgreedAmountPerTeam al 100%.
 /// En modo Fondo Mutuo, puede haber N miembros con aportes variables,
 /// pero la SUMA debe ser exactamente igual a AgreedAmountPerTeam.
@@ -53,6 +53,6 @@ public class PartyMember : BaseEntity
 
         var proporcion = MontoAportado / montoTotalEquipo;
         return Math.Round(proporcion * premioNeto, 2, MidpointRounding.ToZero);
-        // 💡 ToZero previene que la suma de proporciones exceda el premioNeto por redondeo.
+        //  ToZero previene que la suma de proporciones exceda el premioNeto por redondeo.
     }
 }

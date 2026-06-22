@@ -1,16 +1,16 @@
-namespace GamerBet.Application.Interfaces;
+namespace Skillock.Application.Interfaces;
 
 /// <summary>
 /// Unidad de trabajo. Agrupa todos los repositorios y expone SaveChanges
 /// para confirmar la transacción completa en un solo round-trip a la BD.
 ///
-/// 💡 USO CORRECTO EN SERVICIOS:
+///  USO CORRECTO EN SERVICIOS:
 ///   1. El servicio obtiene entidades vía repositorios.
 ///   2. Llama métodos de dominio sobre las entidades.
 ///   3. Una sola llamada a SaveChangesAsync() al final persiste TODO.
 ///   Nunca llamar SaveChanges en medio de una operación de negocio.
 ///
-/// 💡 PARA OPERACIONES CRÍTICAS (wallet, fondeo):
+///  PARA OPERACIONES CRÍTICAS (wallet, fondeo):
 ///   Usar BeginTransactionAsync() para garantizar atomicidad completa
 ///   con IsolationLevel.RepeatableRead como mínimo.
 /// </summary>

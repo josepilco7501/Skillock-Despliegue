@@ -1,7 +1,9 @@
-using GamerBet.Domain.Common;
-using GamerBet.Domain.Enums;
+using Skillock.Domain.Common;
+using Skillock.Domain.Enums;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
-namespace GamerBet.Domain.Entities;
+namespace Skillock.Domain.Entities;
 
 /// <summary>
 /// Agregado raíz central del dominio. Representa una apuesta PvP completa.
@@ -12,7 +14,7 @@ namespace GamerBet.Domain.Entities;
 /// El monto acordado (AgreedAmountPerTeam) es ÚNICO y compartido:
 /// ambos equipos deben reunir exactamente ese monto.
 ///
-/// 💡 RECOMENDACIÓN: Bet es un Aggregate Root en términos DDD.
+///  RECOMENDACIÓN: Bet es un Aggregate Root en términos DDD.
 /// Considera que PartyMember y BetParty no deberían modificarse
 /// directamente desde fuera; encapsula las mutaciones con métodos de dominio aquí.
 /// </summary>
@@ -52,9 +54,34 @@ public class Bet : BaseEntity
     public DateTime? CompletedAt { get; set; }
 
     // --- Navegación ---
-    public BetParty TeamA { get; set; } = null!;
-    public BetParty TeamB { get; set; } = null!;
-    public ICollection<WalletTransaction> Transactions { get; set; } = [];
+    // Lista de parties en la BD (2 registros por apuesta: IsTeamA = true/false)
+    public ICollection<BetParty> BetParties { get; set; } = new List<BetParty>();
+
+    [NotMapped]
+    public BetParty? TeamA
+    {
+        get => BetParties.FirstOrDefault(bp => bp.IsTeamA);
+        set
+        {
+            var existing = BetParties.FirstOrDefault(bp => bp.IsTeamA);
+            if (existing != null) BetParties.Remove(existing);
+            if (value != null) BetParties.Add(value);
+        }
+    }
+
+    [NotMapped]
+    public BetParty? TeamB
+    {
+        get => BetParties.FirstOrDefault(bp => !bp.IsTeamA);
+        set
+        {
+            var existing = BetParties.FirstOrDefault(bp => !bp.IsTeamA);
+            if (existing != null) BetParties.Remove(existing);
+            if (value != null) BetParties.Add(value);
+        }
+    }
+
+    public ICollection<WalletTransaction> Transactions { get; set; } = new List<WalletTransaction>();
 
     // --- Métodos de dominio ---
 

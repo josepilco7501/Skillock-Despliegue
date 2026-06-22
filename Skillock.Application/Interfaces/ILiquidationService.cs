@@ -1,13 +1,13 @@
-using GamerBet.Application.DTOs.Responses;
-using GamerBet.Domain.Enums;
+using Skillock.Application.DTOs.Responses;
+using Skillock.Domain.Enums;
 
-namespace GamerBet.Application.Interfaces;
+namespace Skillock.Application.Interfaces;
 
 /// <summary>
 /// Servicio de liquidación. Llamado exclusivamente por el BackgroundService
 /// de monitoreo cuando se confirma el resultado de una partida.
 ///
-/// 💡 NUNCA exponer este servicio directamente en un endpoint HTTP.
+///  NUNCA exponer este servicio directamente en un endpoint HTTP.
 ///    La liquidación debe ser disparada solo por el sistema interno.
 /// </summary>
 public interface ILiquidationService

@@ -1,7 +1,7 @@
-using GamerBet.Application.DTOs.Requests;
-using GamerBet.Application.DTOs.Responses;
+using Skillock.Application.DTOs.Requests;
+using Skillock.Application.DTOs.Responses;
 
-namespace GamerBet.Application.Interfaces;
+namespace Skillock.Application.Interfaces;
 
 /// <summary>
 /// Servicio de aplicación para la fase de fondeo (estado Funding).
@@ -9,7 +9,7 @@ namespace GamerBet.Application.Interfaces;
 /// actualizar wallets y detectar cuándo ambos equipos están completos
 /// para transicionar la apuesta a Active.
 ///
-/// 💡 TODAS las operaciones de este servicio deben ejecutarse dentro
+///  TODAS las operaciones de este servicio deben ejecutarse dentro
 ///    de una transacción EF Core con BeginTransactionAsync.
 ///    El fondeo toca 3 agregados simultáneamente:
 ///    Wallet (reserva), BetParty (monto acumulado) y WalletTransaction (ledger).

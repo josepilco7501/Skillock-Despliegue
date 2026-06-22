@@ -1,4 +1,6 @@
-namespace GamerBet.Domain.Common;
+using Skillock.Domain.Enums;
+
+namespace Skillock.Domain.Common;
 
 /// <summary>
 /// Excepción base para violaciones de reglas de negocio del dominio.
