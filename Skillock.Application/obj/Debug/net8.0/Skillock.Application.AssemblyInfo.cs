@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Skillock.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2456c31ee429e875083549fbff473473eaa851d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abedcefd6ccdde929dc4a2aeda8adc1c63cb6fdf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Skillock.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Skillock.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,3 +1,4 @@
+using Hangfire;
 using Skillock_ProyectoFinal.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +20,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseHttpsRedirection();
+//Para authenticacion
+app.UseAuthentication();  // ← esta línea
+app.UseAuthorization();   // ← esta línea
+app.UseHangfireDashboard("/hangfire", new DashboardOptions
+{
+    Authorization = new[] { new HangfireAdminAuthorizationFilter() }
+});
 app.MapControllers();
 
 app.Run();

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+2Xb3VSnW7Y=",
+  "dgSpecHash": "pEuXKH/xpys=",
   "success": true,
   "projectFilePath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/Skillock.Application.csproj",
   "expectedPackageFiles": [
+    "/home/josepilco/.nuget/packages/hangfire.core/1.8.17/hangfire.core.1.8.17.nupkg.sha512",
     "/home/josepilco/.nuget/packages/mediatr/12.4.1/mediatr.12.4.1.nupkg.sha512",
     "/home/josepilco/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/home/josepilco/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
@@ -12,6 +13,7 @@
     "/home/josepilco/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "/home/josepilco/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
     "/home/josepilco/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/home/josepilco/.nuget/packages/newtonsoft.json/11.0.1/newtonsoft.json.11.0.1.nupkg.sha512",
     "/home/josepilco/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.28/microsoft.aspnetcore.app.ref.8.0.28.nupkg.sha512"
   ],
   "logs": []
