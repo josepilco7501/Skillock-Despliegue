@@ -19,6 +19,7 @@ public class UserRepository(SkillockDbContext context) : Repository<User>(contex
 
     public Task<bool> AnyByUsernameAsync(string username, CancellationToken cancellationToken = default)
         => Context.Users.AnyAsync(u => u.Username == username, cancellationToken);
+
+    public Task<bool> AnyByRoleAsync(string role, CancellationToken cancellationToken = default)
+        => Context.Users.AnyAsync(u => u.Role == role, cancellationToken);
 }
-
-

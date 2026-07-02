@@ -11,7 +11,6 @@ namespace Skillock_ProyectoFinal.Controllers;
 [Route("api/auth")]
 public class UserController(IMediator mediator, IAuthService authService) : ControllerBase
 {
-    
     [HttpPost("registro")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status409Conflict)]
@@ -20,6 +19,29 @@ public class UserController(IMediator mediator, IAuthService authService) : Cont
         // Evitar que registros públicos se auto-asignen rol Admin.
         request.Role = null;
 
+        var result = await mediator.Send(new RegisterCommand(request), cancellationToken);
+
+        if (!result.IsSuccess)
+        {
+            return result.ErrorCode switch
+            {
+                "EMAIL_EXISTS" or "USERNAME_EXISTS" => Conflict(new { result.ErrorCode, result.ErrorMessage }),
+                _ => BadRequest(new { result.ErrorCode, result.ErrorMessage })
+            };
+        }
+
+        return Ok(result.Value);
+    }
+
+    [HttpPost("admin/bootstrap")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    public async Task<IActionResult> BootstrapAdmin([FromBody] RegisterRequest request, CancellationToken cancellationToken)
+    {
+        if (await authService.HasAnyAdminAsync(cancellationToken))
+            return Conflict(new { ErrorCode = "ADMIN_ALREADY_EXISTS", ErrorMessage = "Ya existe al menos un usuario administrador." });
+
+        request.Role = "Admin";
         var result = await mediator.Send(new RegisterCommand(request), cancellationToken);
 
         if (!result.IsSuccess)

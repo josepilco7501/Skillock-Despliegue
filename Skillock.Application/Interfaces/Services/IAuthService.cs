@@ -8,4 +8,5 @@ public interface IAuthService
 {
     Task<ApplicationResult<AuthResponse>> RegisterAsync(RegisterRequest request, CancellationToken ct);
     Task<ApplicationResult<AuthResponse>> LoginAsync(LoginRequest request, CancellationToken ct);
+    Task<bool> HasAnyAdminAsync(CancellationToken ct = default);
 }

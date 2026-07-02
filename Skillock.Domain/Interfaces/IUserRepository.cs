@@ -8,7 +8,5 @@ public interface IUserRepository : IRepository<User>
     Task<User?> GetByUsernameAsync(string username, CancellationToken cancellationToken = default);
     Task<bool> AnyByEmailAsync(string email, CancellationToken cancellationToken = default);
     Task<bool> AnyByUsernameAsync(string username, CancellationToken cancellationToken = default);
+    Task<bool> AnyByRoleAsync(string role, CancellationToken cancellationToken = default);
 }
-
-
-

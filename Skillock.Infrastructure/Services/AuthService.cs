@@ -50,6 +50,9 @@ public class AuthService(IUnitOfWork unitOfWork, IConfiguration configuration) :
         return ApplicationResult<AuthResponse>.Success(GenerateToken(user));
     }
 
+    public Task<bool> HasAnyAdminAsync(CancellationToken ct = default)
+        => unitOfWork.Users.AnyByRoleAsync("Admin", ct);
+
     private AuthResponse GenerateToken(User user)
     {
         var expiresAt = DateTime.UtcNow.AddHours(24);
