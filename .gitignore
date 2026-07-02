@@ -21,5 +21,3 @@ secrets.json
 # Si usas herramientas de frontend (opcional)
 node_modules/
 
-# Ignorar carpeta de frontend del proyecto (no subir al repo remoto)
-Skillock.Infrastructure/frontend/
