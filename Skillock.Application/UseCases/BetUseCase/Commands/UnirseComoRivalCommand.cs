@@ -48,6 +48,17 @@ public class UnirseComoRivalCommandHandler(IUnitOfWork unitOfWork)
                 return ApplicationResult<BetResponse>.Failure("INVALID_GAME_ACCOUNT",
                     "La GameAccount no corresponde al mismo juego de la apuesta.");
 
+            // Validar saldo suficiente antes de permitir que se una a la apuesta
+            var wallet = await unitOfWork.Wallets.GetByUserIdWithLockAsync(request.LiderRivalId, cancellationToken);
+            if (wallet is null)
+                return ApplicationResult<BetResponse>.Failure("NO_WALLET", "No tienes una wallet activa.");
+
+            var montoRequerido = bet.AgreedAmountPerTeam ?? 0m;
+            if (wallet.SaldoDisponible < montoRequerido)
+                return ApplicationResult<BetResponse>.Failure(
+                    "INSUFFICIENT_BALANCE",
+                    "Saldo insuficiente para unirte a la apuesta.");
+
             var tieneApuestaActiva =
                 await unitOfWork.Bets.UsuarioTieneApuestaActivaAsync(request.LiderRivalId, bet.Game, cancellationToken);
             if (tieneApuestaActiva)

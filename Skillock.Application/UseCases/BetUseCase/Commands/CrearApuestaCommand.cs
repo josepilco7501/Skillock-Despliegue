@@ -49,6 +49,16 @@ public class CrearApuestaCommandHandler(
                 return ApplicationResult<BetResponse>.Failure(
                     "INVALID_GAME_ACCOUNT", "La GameAccount no es válida para crear la apuesta.");
 
+            // Validar saldo disponible antes de crear la apuesta
+            var wallet = await unitOfWork.Wallets.GetByUserIdWithLockAsync(request.LiderId, cancellationToken);
+            if (wallet is null)
+                return ApplicationResult<BetResponse>.Failure("NO_WALLET", "El usuario no tiene wallet.");
+
+            if (wallet.SaldoDisponible < req.MontoInicial)
+                return ApplicationResult<BetResponse>.Failure(
+                    "INSUFFICIENT_BALANCE",
+                    "Saldo insuficiente para crear la apuesta.");
+
             // Validar que no tenga apuesta activa en el mismo juego
             var tieneApuestaActiva = await unitOfWork.Bets
                 .UsuarioTieneApuestaActivaAsync(request.LiderId, req.Game, cancellationToken);

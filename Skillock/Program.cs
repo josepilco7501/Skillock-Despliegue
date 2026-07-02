@@ -1,7 +1,6 @@
 using Hangfire;
 using Skillock_ProyectoFinal.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Skillock.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +14,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirFrontendPython", policy =>
     {
-        policy.WithOrigins("http://localhost:8000", "http://127.0.0.1:8000","http://0.0.0") // El puerto de tu servidor Python
+        policy.WithOrigins(
+                "http://localhost:8000",
+                "http://127.0.0.1:8000",
+                "http://0.0.0",
+                "https://skillock-despliegue.onrender.com")
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
@@ -58,7 +61,7 @@ app.UseAuthentication();
 app.UseAuthorization();   
 
 // 3. AGREGAR DASHBOARD DE HANGFIRE AQUÍ (Siempre después de UseAuthorization)
-app.UseHangfireDashboard("/hangfire");
+app.UseHangfireDashboard(pathMatch: "/hangfire");
 app.MapControllers();
 
 app.Run();
