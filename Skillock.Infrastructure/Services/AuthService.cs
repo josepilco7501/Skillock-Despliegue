@@ -37,7 +37,9 @@ public class AuthService(IUnitOfWork unitOfWork, IConfiguration configuration) :
             Username = request.Username,
             Email = request.Email,
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
-            Role = "Player"
+            Role = string.Equals(request.Role, "Admin", StringComparison.OrdinalIgnoreCase)
+                ? "Admin"
+                : "Player"
         };
 
         user.Wallet = new Wallet();

@@ -1,5 +1,8 @@
 using Hangfire;
 using Skillock_ProyectoFinal.Configuration;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Skillock.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,12 +29,26 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Aplicar migraciones automáticamente si la variable de entorno APPLY_MIGRATIONS está activada.
+// Útil para entornos de despliegue donde no se ejecuta `dotnet ef database update` manualmente.
+try
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var applyMigrations = Environment.GetEnvironmentVariable("APPLY_MIGRATIONS");
+    if (!string.IsNullOrEmpty(applyMigrations) && applyMigrations == "true")
+    {
+        using var scope = app.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<SkillockDbContext>();
+        db.Database.Migrate();
+    }
 }
+catch
+{
+    // Si falla la migración automática no detenemos el arranque; el error se registrará en logs.
+}
+
+// Configure the HTTP request pipeline.
+app.UseSwagger();
+app.UseSwaggerUI();
 // ---ACTIVAR EL MIDDLEWARE DE CORS ---
 // ¡MUY IMPORTANTE! Debe ir justo aquí: después de app.Build() y ANTES de app.MapControllers()
 app.UseCors("PermitirFrontendPython");

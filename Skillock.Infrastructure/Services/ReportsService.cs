@@ -4,6 +4,7 @@ using QuestPDF.Infrastructure;
 using Skillock.Application.Interfaces;
 using Skillock.Domain.Enums;
 using Skillock.Domain.Models;
+using Skillock.Domain.Common;
 
 namespace Skillock.Infrastructure.Services;
 
@@ -11,16 +12,30 @@ public class ReportsService(IUnitOfWork unitOfWork) : IReportsService
 {
     public async Task<byte[]> GenerateCompletedBetsReportAsync(CancellationToken cancellationToken = default)
     {
-        // Obtener todas las apuestas completadas
-        var (items, _) = await unitOfWork.Bets.GetByStatusAsync(BetStatus.Completed, 1, int.MaxValue, cancellationToken);
-        var bets = items.ToList().AsReadOnly();
+        try
+        {
+            // Obtener todas las apuestas completadas
+            var (items, _) = await unitOfWork.Bets.GetByStatusAsync(BetStatus.Completed, 1, int.MaxValue, cancellationToken);
+            var bets = items.ToList().AsReadOnly();
 
-        // Crear documento QuestPDF
-        var document = new CompletedBetsDocument(bets);
+            // Crear documento QuestPDF
+            var document = new CompletedBetsDocument(bets);
 
-        await using var ms = new MemoryStream();
-        document.GeneratePdf(ms);
-        return ms.ToArray();
+            await using var ms = new MemoryStream();
+            // Generación sincrónica de PDF
+            document.GeneratePdf(ms);
+            return ms.ToArray();
+        }
+        catch (DomainException)
+        {
+            // Re-lanzar excepciones de dominio tal cual
+            throw;
+        }
+        catch (Exception ex)
+        {
+            // Convertir cualquier error inesperado en excepción de dominio para que el controller devuelva 422
+            throw new DomainException($"Error generando reporte PDF: {ex.Message}");
+        }
     }
 
     private class CompletedBetsDocument : IDocument

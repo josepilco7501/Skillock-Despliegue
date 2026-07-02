@@ -1,5 +1,4 @@
 using Skillock.Domain.Common;
-using Skillock.Domain.Models;
 using Skillock.Domain.Enums;
 
 namespace Skillock.Domain.Models;
@@ -14,17 +13,17 @@ namespace Skillock.Domain.Models;
 /// </summary>
 public class WalletTransaction : BaseEntity
 {
-    public Guid WalletId { get; init; }
-    public required TransactionType Type { get; init; }
-    public required decimal Amount { get; init; }
+    public Guid WalletId { get; set; }
+    public required TransactionType Type { get; set; }
+    public required decimal Amount { get; set; }
 
     /// <summary>Saldo disponible DESPUÉS de esta transacción (snapshot para auditoría).</summary>
-    public required decimal BalanceAfter { get; init; }
+    public required decimal BalanceAfter { get; set; }
 
     /// <summary>Referencia a la apuesta relacionada, si aplica.</summary>
-    public Guid? BetId { get; init; }
+    public Guid? BetId { get; set; }
 
-    public string? Description { get; init; }
+    public string? Description { get; set; }
 
     // --- Navegación ---
     public virtual Wallet Wallet { get; set; } = null!;

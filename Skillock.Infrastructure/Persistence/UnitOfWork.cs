@@ -14,6 +14,7 @@
         private IWalletRepository? _wallets;
         private IUserRepository? _users;
         private IRepository<GameAccount>? _gameAccounts;
+        private IRepository<WalletTransaction>? _walletTransactions;
         private IDbContextTransaction? _transaction;
         
         private IRepository<BetParty>? _betParties;
@@ -23,6 +24,7 @@
         public IWalletRepository Wallets => _wallets ??= new WalletRepository(context);
         public IUserRepository Users => _users ??= new UserRepository(context);
         public IRepository<GameAccount> GameAccounts => _gameAccounts ??= new Repository<GameAccount>(context);
+        public IRepository<WalletTransaction> WalletTransactions => _walletTransactions ??= new Repository<WalletTransaction>(context);
 
         public Task SaveChangesAsync(CancellationToken cancellationToken = default)
             => context.SaveChangesAsync(cancellationToken);

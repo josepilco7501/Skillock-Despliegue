@@ -12,6 +12,7 @@ using Skillock.Infrastructure.Persistence;
 using Skillock.Infrastructure.Persistence.Repositories;
 using Skillock.Infrastructure.Services;
 using Skillock.Infrastructure.Services.EsportApiClients;
+using QuestPDF.Infrastructure;
 
 namespace Skillock.Infrastructure.Configuration;
 
@@ -23,6 +24,9 @@ public static class InfrastructureServiceExtension
     public static IServiceCollection AddInfrastructureServices(
         this IServiceCollection services, IConfiguration configuration)
     {
+            // Configurar licencia de QuestPDF (modo Community) para generación de PDFs
+            QuestPDF.Settings.License = LicenseType.Community;
+
         // DbContext con retry policy (mejor versión)
         services.AddDbContext<SkillockDbContext>(options =>
             options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));

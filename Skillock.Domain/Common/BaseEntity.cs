@@ -7,9 +7,10 @@ namespace Skillock.Domain.Common;
 /// </summary>
 public abstract class BaseEntity
 {
-    public Guid Id { get; init; } = Guid.NewGuid();
-    public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public DateTime? UpdatedAt { get; set; }
+
 
     // RECOMENDACIÓN: En producción considera agregar CreatedBy / UpdatedBy
     // para auditoría completa, integrado con el ICurrentUserService de Application.

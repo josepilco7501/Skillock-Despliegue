@@ -33,14 +33,17 @@ public sealed class RetirarCommandHandler(IUnitOfWork unitOfWork)
             transactionStarted = true;
 
             wallet.SaldoDisponible -= request.Monto;
-            wallet.Transactions.Add(new Domain.Models.WalletTransaction
+            unitOfWork.Wallets.Update(wallet);
+            
+            var transaction = new Domain.Models.WalletTransaction
             {
                 WalletId = wallet.Id,
                 Type = Domain.Enums.TransactionType.Withdrawal,
                 Amount = request.Monto,
                 BalanceAfter = wallet.SaldoDisponible,
                 Description = "Retiro"
-            });
+            };
+            await unitOfWork.WalletTransactions.AddAsync(transaction, cancellationToken);
 
             await unitOfWork.SaveChangesAsync(cancellationToken);
             await unitOfWork.CommitTransactionAsync(cancellationToken);

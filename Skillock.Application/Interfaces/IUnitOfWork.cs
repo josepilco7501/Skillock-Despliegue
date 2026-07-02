@@ -11,6 +11,7 @@ public interface IUnitOfWork : IAsyncDisposable
     IBetRepository Bets { get; }
     IWalletRepository Wallets { get; }
     IRepository<BetParty> BetParties { get; }
+    IRepository<WalletTransaction> WalletTransactions { get; }
     Task SaveChangesAsync(CancellationToken cancellationToken = default);
     Task BeginTransactionAsync(IsolationLevel isolationLevel = IsolationLevel.ReadCommitted, CancellationToken cancellationToken = default);
     Task CommitTransactionAsync(CancellationToken cancellationToken = default);

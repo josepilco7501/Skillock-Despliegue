@@ -1,6 +1,7 @@
 using MediatR;
 using Skillock.Application.Common;
 using Skillock.Application.Interfaces;
+using Skillock.Domain.Common;
 using Skillock.Domain.Enums;
 using Skillock.Domain.Models;
 
@@ -20,24 +21,46 @@ public sealed class DepositarCommandHandler(IUnitOfWork unitOfWork)
                 "MONTO_INVALIDO",
                 "El monto debe ser mayor a 0 y no exceder 10000.");
 
-        var wallet = await unitOfWork.Wallets.GetByUserIdAsync(request.UserId, cancellationToken);
-        if (wallet is null)
-            return ApplicationResult<WalletResponse>.NotFound("Wallet", request.UserId);
-
-        wallet.SaldoDisponible += request.Monto;
-        wallet.Transactions.Add(new WalletTransaction
+        await unitOfWork.BeginTransactionAsync(cancellationToken: cancellationToken);
+        try
         {
-            WalletId = wallet.Id,
-            Type = TransactionType.Deposit,
-            Amount = request.Monto,
-            BalanceAfter = wallet.SaldoDisponible,
-            Description = "Depósito"
-        });
+            // Obtener wallet con bloqueo FOR UPDATE para evitar condiciones de carrera
+            var wallet = await unitOfWork.Wallets.GetByUserIdWithLockAsync(request.UserId, cancellationToken);
+            if (wallet is null)
+            {
+                await unitOfWork.RollbackTransactionAsync(cancellationToken);
+                return ApplicationResult<WalletResponse>.NotFound("Wallet", request.UserId);
+            }
 
-        await unitOfWork.SaveChangesAsync(cancellationToken);
+             wallet.SaldoDisponible += request.Monto;
+             
+             var transaction = new WalletTransaction
+             {
+                 WalletId = wallet.Id,
+                 Type = TransactionType.Deposit,
+                 Amount = request.Monto,
+                 BalanceAfter = wallet.SaldoDisponible,
+                 Description = "Depósito"
+             };
+             unitOfWork.Wallets.Update(wallet);
+             await unitOfWork.WalletTransactions.AddAsync(transaction, cancellationToken);
+             
+             await unitOfWork.SaveChangesAsync(cancellationToken);
+            await unitOfWork.CommitTransactionAsync(cancellationToken);
 
-        return ApplicationResult<WalletResponse>.Success(
-            new WalletResponse(wallet.UserId, wallet.SaldoDisponible, wallet.SaldoRetenido));
+            return ApplicationResult<WalletResponse>.Success(
+                new WalletResponse(wallet.UserId, wallet.SaldoDisponible, wallet.SaldoRetenido));
+        }
+         catch (DomainException)
+         {
+             await unitOfWork.RollbackTransactionAsync(cancellationToken);
+             throw;
+         }
+        catch
+        {
+            await unitOfWork.RollbackTransactionAsync(cancellationToken);
+            throw;
+        }
     }
 }
 

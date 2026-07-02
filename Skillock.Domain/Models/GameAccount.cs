@@ -7,10 +7,10 @@ public class GameAccount(Guid userId, EsportGame game, string gamePlayerId, stri
 {
     public GameAccount() : this(Guid.Empty, EsportGame.Dota2, string.Empty, string.Empty, false, null) { }
 
-    public Guid UserId { get; init; } = userId;
-    public EsportGame Game { get; init; } = game;
-    public string GamePlayerId { get; init; } = gamePlayerId;
-    public string GamePlayerTag { get; init; } = gamePlayerTag;
+    public Guid UserId { get; set; } = userId;
+    public EsportGame Game { get; set; } = game;
+    public string GamePlayerId { get; set; } = gamePlayerId;
+    public string GamePlayerTag { get; set; } = gamePlayerTag;
     public bool IsActive { get; set; } = isActive;
     public DateTime? VerificadoEn { get; set; } = verificadoEn;
 
