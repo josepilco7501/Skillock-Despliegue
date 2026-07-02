@@ -18,7 +18,8 @@ builder.Services.AddCors(options =>
                 "http://localhost:8000",
                 "http://127.0.0.1:8000",
                 "http://0.0.0",
-                "https://skillock-despliegue.onrender.com")
+                "https://skillock-despliegue.onrender.com",
+                "https://skillock-frontend-despliegue.onrender.com")
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
