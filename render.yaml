@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: skillock-api
+    env: dotnet
+    runtime: dotnet
+    branch: main
+    buildCommand: dotnet publish Skillock/Skillock.csproj -c Release -o ./publish
+    startCommand: dotnet ./publish/Skillock.dll --urls http://0.0.0.0:$PORT
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        sync: false
+        # Formato esperado: Host=host;Port=5432;Database=db;Username=user;Password=pass;SSL Mode=Require;Trust Server Certificate=true
+      - key: Jwt__Key
+        sync: false
+        # Usa una clave segura con mínimo 32 caracteres
+      - key: Jwt__Issuer
+        value: Skillock
+      - key: Jwt__Audience
+        value: SkillockUsers
+      - key: APPLY_MIGRATIONS
+        value: "true"
+      - key: AllowedHosts
+        value: "*"
+      - key: Logging__LogLevel__Default
+        value: Information
+
