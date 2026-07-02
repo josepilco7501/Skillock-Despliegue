@@ -16,7 +16,7 @@ namespace Skillock_ProyectoFinal.Controllers;
 [ApiController]
 [Authorize]
 [Route("api/[controller]")]
-public class BetsController(IMediator mediator, IReportsService reportsService) : ControllerBase
+public class BetsController(IMediator mediator, IReportsService reportsService, Skillock.Application.Interfaces.IUnitOfWork unitOfWork) : ControllerBase
 {
     [HttpPost]
     [ProducesResponseType(typeof(BetResponse), StatusCodes.Status200OK)]
@@ -218,6 +218,53 @@ public class BetsController(IMediator mediator, IReportsService reportsService) 
         {
             var pdf = await reportsService.GenerateCompletedBetsReportAsync(cancellationToken);
             return File(pdf, "application/pdf", "completed-bets-report.pdf");
+        }
+        catch (DomainException ex)
+        {
+            return UnprocessableEntity(ex.Message);
+        }
+    }
+
+    // Endpoint para listar apuestas activas (solo Admin)
+    [HttpGet("active")]
+    [Authorize(Roles = "Admin")]
+    [ProducesResponseType(typeof(IEnumerable<Skillock.Domain.DTOs.Responses.BetResumenResponse>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Active([FromQuery] int pagina = 1, [FromQuery] int tamano = 50, CancellationToken cancellationToken = default)
+    {
+        try
+        {
+            var (bets, total) = await unitOfWork.Bets.GetByStatusAsync(Skillock.Domain.Enums.BetStatus.Active, pagina, tamano, cancellationToken);
+
+            var resumenes = bets.Select(bet => new Skillock.Domain.DTOs.Responses.BetResumenResponse(
+                bet.Id,
+                bet.Game,
+                bet.Status,
+                bet.AgreedAmountPerTeam,
+                bet.PremioNeto,
+                bet.MatchId,
+                bet.CreatedAt,
+                bet.CompletedAt,
+                bet.TeamB?.Members.FirstOrDefault(m => m.Role == Skillock.Domain.Enums.PartyRole.Leader)?.User?.Username
+            )).ToList().AsReadOnly();
+
+            return Ok(resumenes);
+        }
+        catch (DomainException ex)
+        {
+            return UnprocessableEntity(ex.Message);
+        }
+    }
+
+    // Endpoint para que Admin liquide (finalice) una apuesta activa
+    [HttpPost("{id}/liquidar")]
+    [Authorize(Roles = "Admin")]
+    [ProducesResponseType(typeof(Skillock.Domain.DTOs.Responses.LiquidacionResponse), StatusCodes.Status200OK)]
+    public async Task<IActionResult> Liquidar([FromRoute] Guid id, [FromBody] Skillock.Domain.DTOs.Requests.LiquidarApuestaRequest request, CancellationToken cancellationToken)
+    {
+        try
+        {
+            var result = await mediator.Send(new Skillock.Application.UseCases.BetUseCase.Commands.LiquidarApuestaCommand(id, request.Resultado), cancellationToken);
+            return ToActionResult(result);
         }
         catch (DomainException ex)
         {
