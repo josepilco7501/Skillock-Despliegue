@@ -1,4 +1,3 @@
-using System.IO;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -50,10 +49,11 @@ public class ReportsService(IUnitOfWork unitOfWork) : IReportsService
                     {
                         row.RelativeItem().Text("Id").Bold();
                         row.RelativeItem().Text("Game").Bold();
+                        row.RelativeItem().Text("Lider A").Bold();
+                        row.RelativeItem().Text("Lider B").Bold();
                         row.RelativeItem().Text("Agreed").Bold();
                         row.RelativeItem().Text("PremioNeto").Bold();
                         row.RelativeItem().Text("MatchId").Bold();
-                        row.RelativeItem().Text("CreatedAt").Bold();
                         row.RelativeItem().Text("CompletedAt").Bold();
                     });
 
@@ -63,10 +63,11 @@ public class ReportsService(IUnitOfWork unitOfWork) : IReportsService
                         {
                             row.RelativeItem().Text(b.Id.ToString());
                             row.RelativeItem().Text(b.Game.ToString());
+                            row.RelativeItem().Text(ObtenerLider(b.TeamA));
+                            row.RelativeItem().Text(ObtenerLider(b.TeamB));
                             row.RelativeItem().Text(b.AgreedAmountPerTeam?.ToString("F2") ?? "-");
                             row.RelativeItem().Text(b.PremioNeto?.ToString("F2") ?? "-");
                             row.RelativeItem().Text(b.MatchId ?? "-");
-                            row.RelativeItem().Text(b.CreatedAt.ToString("yyyy-MM-dd HH:mm"));
                             row.RelativeItem().Text(b.CompletedAt?.ToString("yyyy-MM-dd HH:mm") ?? "-");
                         });
                     }
@@ -74,6 +75,18 @@ public class ReportsService(IUnitOfWork unitOfWork) : IReportsService
 
                 page.Footer().AlignCenter().Text("Skillock - Reporte de apuestas completadas");
             });
+        }
+
+        private static string ObtenerLider(BetParty? party)
+        {
+            if (party is null)
+                return "-";
+
+            var leader = party.Members.FirstOrDefault(m => m.Role == PartyRole.Leader);
+            if (leader is null)
+                return "-";
+
+            return leader.User.Username;
         }
     }
 }

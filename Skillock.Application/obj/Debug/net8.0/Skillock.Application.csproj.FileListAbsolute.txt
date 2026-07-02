@@ -1,0 +1,16 @@
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/bin/Debug/net8.0/Skillock.Application.deps.json
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/bin/Debug/net8.0/Skillock.Application.dll
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/bin/Debug/net8.0/Skillock.Application.pdb
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/bin/Debug/net8.0/Skillock.Domain.dll
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/bin/Debug/net8.0/Skillock.Domain.pdb
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.csproj.AssemblyReference.cache
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.AssemblyInfoInputs.cache
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.AssemblyInfo.cs
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.csproj.CoreCompileInputs.cache
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.sourcelink.json
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.csproj.CopyComplete
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.dll
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/refint/Skillock.Application.dll
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/Skillock.Application.pdb
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Application/obj/Debug/net8.0/ref/Skillock.Application.dll

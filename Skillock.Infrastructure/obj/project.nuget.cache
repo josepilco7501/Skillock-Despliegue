@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "wKHcECr6akA=",
+  "dgSpecHash": "Fg3fgf+WmaM=",
   "success": true,
   "projectFilePath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Infrastructure/Skillock.Infrastructure.csproj",
   "expectedPackageFiles": [
     "/home/josepilco/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/josepilco/.nuget/packages/dapper/2.0.123/dapper.2.0.123.nupkg.sha512",
-    "/home/josepilco/.nuget/packages/hangfire.aspnetcore/1.8.17/hangfire.aspnetcore.1.8.17.nupkg.sha512",
-    "/home/josepilco/.nuget/packages/hangfire.core/1.8.17/hangfire.core.1.8.17.nupkg.sha512",
-    "/home/josepilco/.nuget/packages/hangfire.netcore/1.8.17/hangfire.netcore.1.8.17.nupkg.sha512",
-    "/home/josepilco/.nuget/packages/hangfire.postgresql/1.20.12/hangfire.postgresql.1.20.12.nupkg.sha512",
+    "/home/josepilco/.nuget/packages/hangfire.aspnetcore/1.8.14/hangfire.aspnetcore.1.8.14.nupkg.sha512",
+    "/home/josepilco/.nuget/packages/hangfire.core/1.8.14/hangfire.core.1.8.14.nupkg.sha512",
+    "/home/josepilco/.nuget/packages/hangfire.netcore/1.8.14/hangfire.netcore.1.8.14.nupkg.sha512",
+    "/home/josepilco/.nuget/packages/hangfire.postgresql/1.20.10/hangfire.postgresql.1.20.10.nupkg.sha512",
     "/home/josepilco/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/josepilco/.nuget/packages/mediatr/12.4.1/mediatr.12.4.1.nupkg.sha512",
     "/home/josepilco/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
@@ -54,6 +54,7 @@
     "/home/josepilco/.nuget/packages/newtonsoft.json/11.0.1/newtonsoft.json.11.0.1.nupkg.sha512",
     "/home/josepilco/.nuget/packages/npgsql/8.0.0/npgsql.8.0.0.nupkg.sha512",
     "/home/josepilco/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.0/npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
+    "/home/josepilco/.nuget/packages/questpdf/2024.6.0/questpdf.2024.6.0.nupkg.sha512",
     "/home/josepilco/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/home/josepilco/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/home/josepilco/.nuget/packages/system.composition/6.0.0/system.composition.6.0.0.nupkg.sha512",
@@ -73,5 +74,18 @@
     "/home/josepilco/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
     "/home/josepilco/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.28/microsoft.aspnetcore.app.ref.8.0.28.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "Skillock.Infrastructure depends on QuestPDF (>= 2024.4.0) but QuestPDF 2024.4.0 was not found. QuestPDF 2024.6.0 was resolved instead.",
+      "projectPath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Infrastructure/Skillock.Infrastructure.csproj",
+      "warningLevel": 1,
+      "filePath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Infrastructure/Skillock.Infrastructure.csproj",
+      "libraryId": "QuestPDF",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

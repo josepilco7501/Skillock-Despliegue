@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/Skillock-ProyectoFinal.props" />
+</Project>

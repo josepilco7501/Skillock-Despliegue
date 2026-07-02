@@ -1,0 +1,12 @@
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/bin/Debug/net8.0/Skillock.Domain.deps.json
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/bin/Debug/net8.0/Skillock.Domain.dll
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/bin/Debug/net8.0/Skillock.Domain.pdb
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/Skillock.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/Skillock.Domain.AssemblyInfoInputs.cache
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/Skillock.Domain.AssemblyInfo.cs
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/Skillock.Domain.csproj.CoreCompileInputs.cache
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/Skillock.Domain.sourcelink.json
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/Skillock.Domain.dll
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/refint/Skillock.Domain.dll
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/Skillock.Domain.pdb
+/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/ref/Skillock.Domain.dll

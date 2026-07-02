@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Skillock.Application.Common;
+using Skillock.Application.Interfaces;
 using Skillock.Application.UseCases.BetUseCase.Commands;
 using Skillock.Application.UseCases.BetUseCase.Querys;
 using Skillock.Application.UseCases.UserUseCase.Commands;
@@ -15,7 +16,7 @@ namespace Skillock_ProyectoFinal.Controllers;
 [ApiController]
 [Authorize]
 [Route("api/[controller]")]
-public class BetsController(IMediator mediator, Skillock.Application.Interfaces.IReportsService reportsService) : ControllerBase
+public class BetsController(IMediator mediator, IReportsService reportsService) : ControllerBase
 {
     [HttpPost]
     [ProducesResponseType(typeof(BetResponse), StatusCodes.Status200OK)]
@@ -198,7 +199,7 @@ public class BetsController(IMediator mediator, Skillock.Application.Interfaces.
     {
         try
         {
-            var result = await mediator.Send(new Skillock.Application.UseCases.BetUseCase.Querys.GetCompletedBetsQuery(new PaginacionRequest(pagina, tamano)), cancellationToken);
+            var result = await mediator.Send(new GetCompletedBetsQuery(new PaginacionRequest(pagina, tamano)), cancellationToken);
             return ToActionResult(result);
         }
         catch (DomainException ex)

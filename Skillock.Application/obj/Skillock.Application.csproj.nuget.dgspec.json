@@ -42,9 +42,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Hangfire.Core": {
+            "Hangfire.AspNetCore": {
               "target": "Package",
-              "version": "[1.8.17, )"
+              "version": "[1.8.14, )"
             },
             "MediatR": {
               "target": "Package",

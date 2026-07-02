@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // 1. Centraliza la inyección de dependencias usando el método de tu profesor
 builder.Services.AddApplicationServices(builder.Configuration);
 
-// 1. Agregar el servicio de CORS
+// 2. Agregar el servicio de CORS
 // --- PASO A: AGREGAR EL SERVICIO DE CORS (Debe ir antes de builder.Build()) ---
 builder.Services.AddCors(options =>
 {
@@ -32,19 +32,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-// --- PASO B: ACTIVAR EL MIDDLEWARE DE CORS ---
+// ---ACTIVAR EL MIDDLEWARE DE CORS ---
 // ¡MUY IMPORTANTE! Debe ir justo aquí: después de app.Build() y ANTES de app.MapControllers()
 app.UseCors("PermitirFrontendPython");
 
 //Para authenticacion
-app.UseAuthentication();  // ← esta línea
-app.UseAuthorization();   // ← esta línea
+app.UseAuthentication();  
+app.UseAuthorization();   
 
-app.UseHangfireDashboard("/hangfire", new DashboardOptions
-{
-    //Authorization = new[] { new HangfireAdminAuthorizationFilter() }
-    Authorization = new[] { new AllowAllDashboardAuthorizationFilter() }
-});
+// 3. AGREGAR DASHBOARD DE HANGFIRE AQUÍ (Siempre después de UseAuthorization)
+app.UseHangfireDashboard("/hangfire");
 app.MapControllers();
 
 app.Run();
