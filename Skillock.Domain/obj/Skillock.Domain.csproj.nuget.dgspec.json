@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/Skillock.Domain.csproj": {}
+    "C:\\Users\\HAMMER\\RiderProjects\\Skillock-Despliegue\\Skillock.Domain\\Skillock.Domain.csproj": {}
   },
   "projects": {
-    "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/Skillock.Domain.csproj": {
+    "C:\\Users\\HAMMER\\RiderProjects\\Skillock-Despliegue\\Skillock.Domain\\Skillock.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/Skillock.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\HAMMER\\RiderProjects\\Skillock-Despliegue\\Skillock.Domain\\Skillock.Domain.csproj",
         "projectName": "Skillock.Domain",
-        "projectPath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/Skillock.Domain.csproj",
-        "packagesPath": "/home/josepilco/.nuget/packages/",
-        "outputPath": "/home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/",
+        "projectPath": "C:\\Users\\HAMMER\\RiderProjects\\Skillock-Despliegue\\Skillock.Domain\\Skillock.Domain.csproj",
+        "packagesPath": "C:\\Users\\HAMMER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HAMMER\\RiderProjects\\Skillock-Despliegue\\Skillock.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/josepilco/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\HAMMER\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -24,6 +24,7 @@
         },
         "frameworks": {
           "net8.0": {
+            "framework": "net8.0",
             "targetAlias": "net8.0",
             "projectReferences": {}
           }
@@ -32,10 +33,16 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "imports": [
             "net461",
@@ -48,18 +55,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.28, 8.0.28]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.128/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\HAMMER\\.dotnet\\sdk\\8.0.425/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -5,11 +5,10 @@ using Skillock.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Centraliza la inyección de dependencias usando el método de tu profesor
+// 1. Centraliza la inyección de dependencias (Aquí adentro ya se añade Swagger y Controllers)
 builder.Services.AddApplicationServices(builder.Configuration);
 
 // 2. Agregar el servicio de CORS
-// --- PASO A: AGREGAR EL SERVICIO DE CORS (Debe ir antes de builder.Build()) ---
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirFrontendPython", policy =>
@@ -25,16 +24,11 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddControllers();
+// ¡SE ELIMINARON LAS LÍNEAS DUPLICADAS DE ADDCONTROLLERS Y ADDSWAGGERGEN DE AQUÍ!
 
 var app = builder.Build();
 
-// Aplicar migraciones automáticamente si la variable de entorno APPLY_MIGRATIONS está activada.
-// Útil para entornos de despliegue donde no se ejecuta `dotnet ef database update` manualmente.
+// Aplicar migraciones automáticamente
 try
 {
     var applyMigrations = Environment.GetEnvironmentVariable("APPLY_MIGRATIONS");
@@ -45,23 +39,34 @@ try
         db.Database.Migrate();
     }
 }
-catch
-{
-    // Si falla la migración automática no detenemos el arranque; el error se registrará en logs.
-}
+catch { }
 
-// Configure the HTTP request pipeline.
-app.UseSwagger();
-app.UseSwaggerUI();
-// ---ACTIVAR EL MIDDLEWARE DE CORS ---
-// ¡MUY IMPORTANTE! Debe ir justo aquí: después de app.Build() y ANTES de app.MapControllers()
+// --- CONFIGURACIÓN CORRECTA DEL PIPELINE VISUAL ---
+// Reemplaza tus líneas de UseSwagger por estas tres:
+app.UseSwagger(c =>
+{
+    c.RouteTemplate = "swagger/{documentName}/swagger.json";
+});
+
+app.UseSwaggerUI(c =>
+{
+    // Forzar el mapeo directo para que el catch interno de .NET capture el fallo
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skillock API v1");
+    
+    // Si hay un error de mapeo, esto romperá el arranque e imprimirá el log en Rider
+    c.ConfigObject.AdditionalItems["throwOnError"] = true; 
+});
+
+
+
+// Activar CORS
 app.UseCors("PermitirFrontendPython");
 
-//Para authenticacion
+// Autenticación y Autorización
 app.UseAuthentication();  
 app.UseAuthorization();   
 
-// 3. AGREGAR DASHBOARD DE HANGFIRE AQUÍ (Siempre después de UseAuthorization)
+// Dashboard de Hangfire
 app.UseHangfireDashboard(pathMatch: "/hangfire");
 app.MapControllers();
 

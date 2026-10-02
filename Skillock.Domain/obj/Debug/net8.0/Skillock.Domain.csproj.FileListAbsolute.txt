@@ -10,3 +10,15 @@
 /home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/refint/Skillock.Domain.dll
 /home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/Skillock.Domain.pdb
 /home/josepilco/RiderProjects/Skillock-ProyectoFinal/Skillock.Domain/obj/Debug/net8.0/ref/Skillock.Domain.dll
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\bin\Debug\net8.0\Skillock.Domain.deps.json
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\bin\Debug\net8.0\Skillock.Domain.dll
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\bin\Debug\net8.0\Skillock.Domain.pdb
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\Skillock.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\Skillock.Domain.AssemblyInfoInputs.cache
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\Skillock.Domain.AssemblyInfo.cs
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\Skillock.Domain.csproj.CoreCompileInputs.cache
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\Skillock.Domain.sourcelink.json
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\Skillock.Domain.dll
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\refint\Skillock.Domain.dll
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\Skillock.Domain.pdb
+C:\Users\HAMMER\RiderProjects\Skillock-Despliegue\Skillock.Domain\obj\Debug\net8.0\ref\Skillock.Domain.dll

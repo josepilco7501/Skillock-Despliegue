@@ -16,7 +16,8 @@ public static class ServiceRegistrationExtensions
         services.AddInfrastructureServices(configuration);
 
         // Controladores
-        services.AddControllers();
+        services.AddControllers().AddNewtonsoftJson();
+
 
         // JWT Authentication
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
